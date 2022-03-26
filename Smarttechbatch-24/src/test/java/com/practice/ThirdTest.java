@@ -3,7 +3,7 @@ package com.practice;
 public class ThirdTest extends SecondTest {
 
 	void orange(){
-		System.out.println(a);
+		System.out.println();
 	}
 	public static void main(String[] args) {
 		
