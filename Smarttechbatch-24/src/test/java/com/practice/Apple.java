@@ -6,17 +6,21 @@ public class Apple {
 	static int j = 20;
 	static int k = i+j;
 	
-	//As we did math outside method for perameter purpose we now can do it inside the method. 
+	// *Parameter is a value that you can pass to a method in Java. 
+	//As we did math outside method for parameter purpose we now can do it inside the method. 
+	// We can pass int string boolean inside the parenthesis.
 	
-	static void add(int a, int b) {
-		int l= a+b;
+//	static void add(int a, int b) {
+//		int l= a+b;
+//		System.out.println("this is the result: "+l);
+//		}
+	
+	static void add(int b, String a) {
+		String l = b+a;
 		System.out.println("this is the result: "+l);
-		
-	
-		
 	}
 	public static void main(String[] args) {
-		add(20,50);
+		add(50," apple");
 	}
 	
 	//* All these are outside of main method have to call it inside main method to run it. 	
