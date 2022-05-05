@@ -57,8 +57,11 @@ public class NewTours {
 	    
 	    WebElement fMonth = driver.findElement(By.xpath("//*[@name='fromMonth']"));
 	    Select selectFMonth = new Select(fMonth);
-	    selectFMonth.selectByVisibleText("July");
+	    selectFMonth.deselectByIndex(5);
 	    
+	    /*WebElement depMonth = driver.findElement(By.xpath("//*[@name='fromMonth']"));
+		Select dMon = new Select(depMonth);
+		dMon.selectByIndex(2);*/
 	    
 	    
 	    

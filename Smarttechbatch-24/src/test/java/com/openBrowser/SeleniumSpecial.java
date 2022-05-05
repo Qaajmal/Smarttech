@@ -1,55 +1,69 @@
 package com.openBrowser;
 
+import java.util.ArrayList;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+import junit.framework.Assert;
+
 public class SeleniumSpecial {
 
-//	public static void main(String[] args) {
-//		
-//		import java.util.ArrayList;
-//		import java.util.Set;
-//		import java.util.concurrent.TimeUnit;
-//
-//		import org.junit.Assert;
-//		import org.openqa.selenium.By;
-//		import org.openqa.selenium.JavascriptExecutor;
-//		import org.openqa.selenium.Keys;
-//		import org.openqa.selenium.WebDriver;
-//		import org.openqa.selenium.WebElement;
-//		import org.openqa.selenium.chrome.ChromeDriver;
-//		import org.openqa.selenium.interactions.Actions;
-//		import org.openqa.selenium.support.ui.Select;
-//
-//		public class SeleniumSpecial {
 
 			public static void main(String[] args) throws Throwable {
 				// Set the path to the chromedriver executable
-				System.setProperty("webdriver.chrome.driver", "C://Driver/chromedriver.exe");
+				System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
 				// instantiate a Chrome session
 				WebDriver driver = new ChromeDriver();
 				// Open browser and go to home page
 				
-				// declare implicity wait
+			     // declare implicity wait
 				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 				driver.manage().window().maximize();
 				
-				// Radio Button Example
-				WebElement BMW = driver.findElement(By.id("hondaradio"));
-				BMW.click();
-
-				// Select Class Example
-				WebElement dropDown = driver.findElement(By.id("carselect"));
+				driver.get("https://courses.letskodeit.com/practice");
+				
+				WebElement Benz = driver.findElement(By.id("benzradio"));
+				Benz.click();
+				
+			    // Radio Button Example
+				//WebElement Honda = driver.findElement(By.id("hondaradio"));
+				//Honda.click();
+				
+				 WebElement dropDown = driver.findElement(By.id("carselect"));
 				Select selectDrop = new Select(dropDown);
 				selectDrop.selectByVisibleText("Benz");
 				
-				// selectDrop.selectByIndex(2);
 
-				// Select Multiple Class Example
+			// Select Class Example
+			//	WebElement dropDown = driver.findElement(By.id("carselect"));
+			//	Select selectDrop = new Select(dropDown);
+			//	selectDrop.selectByVisibleText("Benz");
+				
+				// selectDrop.selectByIndex(2);
+				
+				WebElement multiSelect = driver.findElement(By.id("multiple-select-example"));
+				Select dropMulti = new Select (multiSelect);
+				dropMulti.selectByVisibleText("Apple");
+				dropMulti.selectByVisibleText("Peach");
+				
+				
+			/* // Select Multiple Class Example
 				WebElement multiSelect = driver.findElement(By.id("multiple-select-example"));
 				Select dropMulti = new Select(multiSelect);
 				dropMulti.selectByVisibleText("Apple");
-				dropMulti.selectByVisibleText("Peach");
+				dropMulti.selectByVisibleText("Peach");*/
 
-				// CheckBox Example
-				WebElement checkHonda = driver.findElement(By.id("hondacheck"));
+			 // CheckBox Example
+				WebElement checkHonda = driver.findElement(By.id("benzcheck"));
 				checkHonda.click();
 
 				// Switch Window Example
@@ -62,7 +76,7 @@ public class SeleniumSpecial {
 				Set<String> swHandles = driver.getWindowHandles();
 				System.out.println("Old window plus new window names: " + swHandles);
 				System.out.println("Window title before change: " + driver.getTitle());
-				// Pass a window handle to the other window
+					// Pass a window handle to the other window
 				for (String handle1 : driver.getWindowHandles()) {
 					System.out.println("Changing window: " + handle1);
 					driver.switchTo().window(handle1);
@@ -78,13 +92,13 @@ public class SeleniumSpecial {
 				exTab.click();
 				ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
 				System.out.println("Number of open tab: " + tabs.size());
-				// Switch to new tab
+			// Switch to new tab
 				driver.switchTo().window(tabs.get(tabs.size() - 1));
 				System.out.println("Window title after change: " + driver.getTitle());
 				driver.close();
 				driver.switchTo().window(tabs.get(0));
 
-				// javascriptexecutor scroll down
+			// javascriptexecutor scroll down
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("window.scrollBy(0,500)");
 
@@ -107,7 +121,7 @@ public class SeleniumSpecial {
 				Assert.assertTrue("verify table xpath", tableEx.isDisplayed());
 				
 			    
-			    //javascriptexecutor scroll down again
+				//javascriptexecutor scroll down again
 			    js.executeScript("window.scrollBy(0,2000)");
 			    
 			    //iFrame Example
