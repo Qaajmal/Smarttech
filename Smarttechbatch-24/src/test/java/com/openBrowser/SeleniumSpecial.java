@@ -66,7 +66,7 @@ public class SeleniumSpecial {
 				WebElement checkHonda = driver.findElement(By.id("benzcheck"));
 				checkHonda.click();
 
-				// Switch Window Example
+			/*	// Switch Window Example
 				// Store and Print the name of the First window on the console
 				String swHandle = driver.getWindowHandle();
 				System.out.println("This is first window: " + swHandle);
@@ -138,7 +138,7 @@ public class SeleniumSpecial {
 			    WebElement reEx = driver.findElement(By.xpath("//*[contains(text(),'Reload')]"));
 			    abc.moveToElement(actEx).perform();
 			    Thread.sleep(3000);
-			    reEx.click();
+			    reEx.click();*/
 			    
 			    
 	}
